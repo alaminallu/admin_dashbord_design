@@ -35,10 +35,16 @@
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <header class="bg-gray-800 text-white p-4 flex justify-between items-center md:hidden">
+        <div class="text-xl font-bold text-blue-400">সুপার অ্যাডমিন</div>
+        <button id="menu-btn" class="p-2">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
     <div class="flex flex-1">
         <!-- বাম দিকের সাইডবার -->
-        <aside class="w-64 bg-gray-800 p-6 flex flex-col rounded-r-lg shadow-lg">
-            <div class="text-center mb-8">
+        <aside id="sidebar" class="w-64 bg-gray-800 p-6 flex-col rounded-r-lg shadow-lg fixed h-full z-20 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-200 ease-in-out md:flex">
+            <div class="text-center mb-8 hidden md:block">
                 <div class="text-xl font-bold text-blue-400 mb-2">সুপার অ্যাডমিন</div>
                 <div class="text-sm text-gray-400">01925802550</div>
             </div>
@@ -363,6 +369,15 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const sidebar = document.getElementById('sidebar');
+
+            if (menuBtn) {
+                menuBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('-translate-x-full');
+                });
+            }
+
             const navLinks = document.querySelectorAll('nav a');
             const sections = {
                 'dashboard': document.getElementById('dashboard-content'),
@@ -423,6 +438,10 @@
                         loadContent(page);
                         // URL হ্যাশ আপডেট করুন যাতে রিফ্রেশ করলে সঠিক পেজ লোড হয়
                         window.location.hash = page;
+                    }
+                    // On mobile, hide the sidebar after a link is clicked
+                    if (window.innerWidth < 768) {
+                        sidebar.classList.add('-translate-x-full');
                     }
                 });
             });
