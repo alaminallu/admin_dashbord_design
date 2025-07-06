@@ -1,10 +1,472 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="bn">
 <head>
-	<meta charset="UTF-8">
-	<title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সুপার অ্যাডমিন ড্যাশবোর্ড</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* কাস্টম ফন্ট: ইন্টার */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* স্ক্রলবারের স্টাইলিং */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2d3748; /* ট্র্যাকের রঙ */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568; /* থাম্বের রঙ */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; /* থাম্বের হোভার রঙ */
+        }
+        /* সক্রিয় লিঙ্ক স্টাইল */
+        .active-link {
+            background-color: #4a5568; /* সক্রিয় লিঙ্কের ব্যাকগ্রাউন্ড */
+            color: #ffffff; /* সক্রিয় লিঙ্কের টেক্সট রঙ */
+        }
+    </style>
 </head>
-<body>
-	<h1>alamin allu</h1>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <div class="flex flex-1">
+        <!-- বাম দিকের সাইডবার -->
+        <aside class="w-64 bg-gray-800 p-6 flex flex-col rounded-r-lg shadow-lg">
+            <div class="text-center mb-8">
+                <div class="text-xl font-bold text-blue-400 mb-2">সুপার অ্যাডমিন</div>
+                <div class="text-sm text-gray-400">01925802550</div>
+            </div>
+
+            <!-- প্রধান মেনু -->
+            <nav class="flex-1">
+                <div class="text-xs font-semibold uppercase text-gray-500 mb-4">প্রধান</div>
+                <ul>
+                    <li class="mb-2">
+                        <a href="#dashboard" class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200 active-link" data-page="dashboard">
+                            <i class="fas fa-tachometer-alt mr-3 text-blue-400"></i>
+                            ড্যাশবোর্ড
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#manages" class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200" data-page="manages">
+                            <i class="fas fa-tasks mr-3 text-orange-400"></i>
+                            ম্যানেজ
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#messages" class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200" data-page="messages">
+                            <i class="fas fa-envelope mr-3 text-purple-400"></i>
+                            মেসেজ
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#sms" class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200" data-page="sms">
+                            <i class="fas fa-sms mr-3 text-green-400"></i>
+                            এসএমএস
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#files" class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200" data-page="files">
+                            <i class="fas fa-file-alt mr-3 text-yellow-400"></i>
+                            ফাইল
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- লগ আউট -->
+            <div class="mt-auto">
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                    <i class="fas fa-sign-out-alt mr-3 text-red-400"></i>
+                    লগ আউট
+                </a>
+            </div>
+        </aside>
+
+        <!-- মূল বিষয়বস্তু এলাকা -->
+        <main class="flex-1 p-8 overflow-y-auto" id="content-area">
+            <!-- ড্যাশবোর্ড বিষয়বস্তু -->
+            <section id="dashboard-content">
+                <h1 class="text-3xl font-bold mb-8 text-white">ড্যাশবোর্ড</h1>
+
+                <!-- গ্রাহক সেকশন -->
+                <div class="mb-10">
+                    <h2 class="text-xl font-semibold mb-5 text-gray-300">গ্রাহক</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                            <div class="text-4xl font-bold text-blue-400">737</div>
+                            <div class="text-lg text-gray-400 mt-2">ব্যবহারকারী</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                            <div class="text-4xl font-bold text-blue-400">501</div>
+                            <div class="text-lg text-gray-400 mt-2">লোন আবেদনকৃত</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- স্ট্যাটাস সেকশন -->
+                <div>
+                    <h2 class="text-xl font-semibold mb-5 text-gray-300">স্ট্যাটাস</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                            <div class="text-4xl font-bold text-purple-400">236</div>
+                            <div class="text-lg text-gray-400 mt-2">লোন পেন্ডিং</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                            <div class="text-4xl font-bold text-purple-400">0</div>
+                            <div class="text-lg text-gray-400 mt-2">লোন পাস</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                            <div class="text-4xl font-bold text-purple-400">236</div>
+                            <div class="text-lg text-gray-400 mt-2">পে পেন্ডিং</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                            <div class="text-4xl font-bold text-purple-400">0</div>
+                            <div class="text-lg text-gray-400 mt-2">পে পাস</div>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center col-span-full sm:col-span-1">
+                            <div class="text-4xl font-bold text-purple-400">30</div>
+                            <div class="text-lg text-gray-400 mt-2">প্রত্যাখ্যাত</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ম্যানেজ পেজ বিষয়বস্তু (লুকানো) -->
+            <section id="manages-content" class="hidden">
+                <div class="flex items-center justify-between mb-8">
+                    <h1 class="text-3xl font-bold text-white">ম্যানেজ</h1>
+                    <div class="flex items-center text-orange-400">
+                        <i class="fas fa-hdd mr-2"></i>
+                        <span>লোকাল স্টোরেজ</span>
+                    </div>
+                </div>
+
+                <!-- ইউজার সার্চ সেকশন -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md mb-8">
+                    <div class="flex flex-col md:flex-row items-center gap-4">
+                        <label for="user-number" class="text-gray-300 sr-only">ইউজার নাম্বার</label>
+                        <input type="text" id="user-number" placeholder="ইউজার নাম্বার" class="flex-1 p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400">
+                        <button id="user-details-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">ইউজার ডিটেইলস</button>
+                        <button id="loan-details-btn" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">লোন ডিটেইলস</button>
+                    </div>
+                </div>
+
+                <!-- ইউজার ডিটেইলস সেকশন (শুরুতে লুকানো থাকবে) -->
+                <div id="user-details-section" class="bg-gray-800 p-6 rounded-lg shadow-md mb-8 hidden">
+                    <h2 class="text-xl font-semibold mb-6 text-white">ইউজার ডিটেইলস - <span id="user-detail-name">ঘফঘফ</span></h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="user-name" class="block text-gray-400 text-sm font-bold mb-2">নাম :</label>
+                            <input type="text" id="user-name" value="ঘফঘফ" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" readonly>
+                        </div>
+                        <div>
+                            <label for="user-number-display" class="block text-gray-400 text-sm font-bold mb-2">নাম্বার :</label>
+                            <input type="text" id="user-number-display" value="01771784681" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" readonly>
+                        </div>
+                        <div>
+                            <label for="user-role" class="block text-gray-400 text-sm font-bold mb-2">রোল :</label>
+                            <input type="text" id="user-role" value="ইউজার" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div>
+                            <label for="user-balance" class="block text-gray-400 text-sm font-bold mb-2">ব্যালেন্স :</label>
+                            <input type="number" id="user-balance" value="0" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="new-password" class="block text-gray-400 text-sm font-bold mb-2">নতুন পাসওয়ার্ড :</label>
+                            <input type="password" id="new-password" value="হফগ" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">আপডেট</button>
+                </div>
+
+                <!-- পার্সোনাল ইনফো সেকশন (শুরুতে লুকানো থাকবে) -->
+                <div id="personal-info-section" class="bg-gray-800 p-6 rounded-lg shadow-md mb-8 hidden">
+                    <h2 class="text-xl font-semibold mb-6 text-white">পার্সোনাল ইনফো</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="p-name" class="block text-gray-400 text-sm font-bold mb-2">নাম :</label>
+                            <input type="text" id="p-name" value="ঘফঘফ" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div>
+                            <label for="p-id-number" class="block text-gray-400 text-sm font-bold mb-2">আইডি নাম্বার :</label>
+                            <input type="text" id="p-id-number" value="67567567" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div>
+                            <label for="p-current-address" class="block text-gray-400 text-sm font-bold mb-2">বর্তমান ঠিকানা :</label>
+                            <input type="text" id="p-current-address" value="থফঘফ" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div>
+                            <label for="p-permanent-address" class="block text-gray-400 text-sm font-bold mb-2">স্থায়ী ঠিকানা :</label>
+                            <input type="text" id="p-permanent-address" value="ডঘফঘফ" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div>
+                            <label for="p-mobile-number" class="block text-gray-400 text-sm font-bold mb-2">মোবাইল নাম্বার :</label>
+                            <input type="text" id="p-mobile-number" value="01771784681" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div>
+                            <label for="p-jobs" class="block text-gray-400 text-sm font-bold mb-2">পেশা :</label>
+                            <input type="text" id="p-jobs" value="ছাত্র" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div>
+                            <label for="p-loan-purpose" class="block text-gray-400 text-sm font-bold mb-2">লোনের উদ্দেশ্য :</label>
+                            <input type="text" id="p-loan-purpose" value="বিবাহ" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div>
+                            <label for="p-nominee-relation" class="block text-gray-400 text-sm font-bold mb-2">নমিনি সম্পর্ক :</label>
+                            <input type="text" id="p-nominee-relation" value="মা" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div>
+                            <label for="p-nominee-name" class="block text-gray-400 text-sm font-bold mb-2">নমিনি নাম :</label>
+                            <input type="text" id="p-nominee-name" value="5645" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                        <div>
+                            <label for="p-nominee-number" class="block text-gray-400 text-sm font-bold mb-2">নমিনি নাম্বার :</label>
+                            <input type="text" id="p-nominee-number" value="54645" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ফটো/ডকুমেন্টস সেকশন (শুরুতে লুকানো থাকবে) -->
+                <div id="photo-documents-section" class="bg-gray-800 p-6 rounded-lg shadow-md hidden">
+                    <h2 class="text-xl font-semibold mb-6 text-white">ছবি :</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                        <div class="flex flex-col items-center">
+                            <div class="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden mb-2">
+                                <!-- Placeholder for Photo -->
+                                <img src="https://placehold.co/128x128/374151/9CA3AF?text=Photo" alt="Photo Placeholder" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-gray-300">ছবি</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden mb-2">
+                                <!-- Placeholder for ID front -->
+                                <img src="https://placehold.co/128x128/374151/9CA3AF?text=ID+front" alt="ID Front Placeholder" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-gray-300">আইডি সম্মুখ</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden mb-2">
+                                <!-- Placeholder for ID back -->
+                                <img src="https://placehold.co/128x128/374151/9CA3AF?text=ID+back" alt="ID Back Placeholder" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-gray-300">আইডি পেছনের</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden mb-2">
+                                <!-- Placeholder for Signature -->
+                                <img src="https://placehold.co/128x128/374151/9CA3AF?text=Signature" alt="Signature Placeholder" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-gray-300">স্বাক্ষর</span>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">আপডেট</button>
+                </div>
+            </section>
+
+            <!-- মেসেজ পেজ (লুকানো) -->
+            <section id="messages-content" class="hidden">
+                <h1 class="text-3xl font-bold mb-8 text-white">মেসেজ</h1>
+                <p class="text-gray-300">এখানে আপনার মেসেজগুলো দেখতে পাবেন।</p>
+                <!-- মেসেজ কন্টেন্ট এখানে যোগ করুন -->
+            </section>
+
+            <!-- এসএমএস পেজ (লুকানো) -->
+            <section id="sms-content" class="hidden">
+                <h1 class="text-3xl font-bold mb-8 text-white">এসএমএস ম্যানেজমেন্ট</h1>
+
+                <!-- কাস্টম মেসেজ সেকশন -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md mb-8">
+                    <h2 class="text-xl font-semibold mb-4 text-white">কাস্টম মেসেজ</h2>
+                    <textarea id="custom-message" rows="6" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400" placeholder="আপনার কাস্টম মেসেজ এখানে লিখুন..."></textarea>
+                </div>
+
+                <!-- কুইক টেমপ্লেটস সেকশন -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-4 text-white">কুইক টেমপ্লেটস</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                        <button class="template-btn bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">সঞ্চয়</button>
+                        <button class="template-btn bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">ব্যাংক ফি</button>
+                        <button class="template-btn bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">কিস্তি</button>
+                        <button class="template-btn bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">সরকারি ফি</button>
+                        <button class="template-btn bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">বাতিল</button>
+                        <button class="template-btn bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">লোন অনুমোদিত নয়</button>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">মেসেজ সেভ করুন</button>
+                        <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md">ক্লিয়ার</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ফাইল পেজ (লুকানো) -->
+            <section id="files-content" class="hidden">
+                <div class="flex items-center justify-between mb-8">
+                    <h1 class="text-3xl font-bold text-white">ফাইল</h1>
+                    <div class="flex items-center text-orange-400">
+                        <i class="fas fa-hdd mr-2"></i>
+                        <span>লোকাল স্টোরেজ</span>
+                    </div>
+                </div>
+
+                <!-- পেমেন্ট মেথড সেকশন -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md mb-8 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <i class="fas fa-credit-card text-blue-400 text-3xl mr-4"></i>
+                        <div>
+                            <h2 class="text-xl font-semibold text-white">পেমেন্ট পদ্ধতি পরিবর্তন করুন</h2>
+                            <p class="text-gray-400 text-sm">ডিপোজিটের জন্য পেমেন্ট নাম্বার আপডেট করুন</p>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-lg transition-colors duration-200 shadow-md">অ্যাক্সেস</button>
+                </div>
+
+                <!-- লোকাল স্টোরেজ সেকশন -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md mb-8 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <i class="fas fa-hdd text-orange-400 text-3xl mr-4"></i>
+                        <div>
+                            <h2 class="text-xl font-semibold text-white">লোকাল স্টোরেজ</h2>
+                            <p class="text-gray-400 text-sm">লোকাল ব্রাউজার স্টোরেজ ব্যবহার করে</p>
+                        </div>
+                    </div>
+                    <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-5 rounded-lg transition-colors duration-200 shadow-md">ডেটা রিফ্রেশ করুন</button>
+                </div>
+
+                <!-- ডেটা সামারি সেকশন -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-6 text-white">ডেটা সামারি</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div>
+                            <div class="text-4xl font-bold text-blue-400">4</div>
+                            <div class="text-lg text-gray-400 mt-2">মোট ব্যবহারকারী</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-green-400">3</div>
+                            <div class="text-lg text-gray-400 mt-2">মোট লোন</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-red-400">0</div>
+                            <div class="text-lg text-gray-400 mt-2">মোট লেনদেন</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            const sections = {
+                'dashboard': document.getElementById('dashboard-content'),
+                'manages': document.getElementById('manages-content'),
+                'messages': document.getElementById('messages-content'),
+                'sms': document.getElementById('sms-content'),
+                'files': document.getElementById('files-content')
+            };
+
+            const userDetailsBtn = document.getElementById('user-details-btn');
+            const loanDetailsBtn = document.getElementById('loan-details-btn');
+            const userDetailsSection = document.getElementById('user-details-section');
+            const personalInfoSection = document.getElementById('personal-info-section');
+            const photoDocumentsSection = document.getElementById('photo-documents-section');
+
+            const customMessageTextarea = document.getElementById('custom-message');
+            const templateButtons = document.querySelectorAll('.template-btn');
+
+            // ফাংশন যা বিষয়বস্তু লোড করে
+            function loadContent(page) {
+                // সব সেকশন লুকান
+                Object.values(sections).forEach(section => {
+                    section.classList.add('hidden');
+                });
+                // নির্বাচিত সেকশন দেখান
+                if (sections[page]) {
+                    sections[page].classList.remove('hidden');
+                }
+
+                // সক্রিয় লিঙ্ক হাইলাইট করুন
+                navLinks.forEach(link => {
+                    link.classList.remove('active-link', 'bg-gray-700');
+                });
+                const activeLink = document.querySelector(`[data-page="${page}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active-link', 'bg-gray-700');
+                }
+
+                // ম্যানেজ পেজ লোড হলে ডিফল্টভাবে ইউজার ডিটেইলস দেখান
+                if (page === 'manages') {
+                    userDetailsSection.classList.remove('hidden');
+                    personalInfoSection.classList.add('hidden');
+                    photoDocumentsSection.classList.add('hidden');
+                    // ইউজার ডিটেইলস বাটনকে সক্রিয় করুন
+                    userDetailsBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                    userDetailsBtn.classList.remove('bg-gray-600', 'hover:bg-gray-700');
+                    loanDetailsBtn.classList.add('bg-gray-600', 'hover:bg-gray-700');
+                    loanDetailsBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                }
+            }
+
+            // নেভিগেশন লিঙ্কগুলিতে ক্লিক ইভেন্ট লিসেনার যোগ করুন
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); // ডিফল্ট লিঙ্ক আচরণ প্রতিরোধ করুন
+                    const page = e.currentTarget.dataset.page;
+                    if (page) {
+                        loadContent(page);
+                        // URL হ্যাশ আপডেট করুন যাতে রিফ্রেশ করলে সঠিক পেজ লোড হয়
+                        window.location.hash = page;
+                    }
+                });
+            });
+
+            // ইউজার ডিটেইলস বাটন ক্লিক হ্যান্ডলার
+            if (userDetailsBtn) { // Check if element exists before adding listener
+                userDetailsBtn.addEventListener('click', () => {
+                    userDetailsSection.classList.remove('hidden');
+                    personalInfoSection.classList.add('hidden');
+                    photoDocumentsSection.classList.add('hidden');
+                    userDetailsBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                    userDetailsBtn.classList.remove('bg-gray-600', 'hover:bg-gray-700');
+                    loanDetailsBtn.classList.add('bg-gray-600', 'hover:bg-gray-700');
+                    loanDetailsBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                });
+            }
+
+            // লোন ডিটেইলস বাটন ক্লিক হ্যান্ডলার
+            if (loanDetailsBtn) { // Check if element exists before adding listener
+                loanDetailsBtn.addEventListener('click', () => {
+                    // লোন ডিটেইলস বাটন ক্লিক করলে পার্সোনাল ইনফো এবং ফটো/ডকুমেন্টস সেকশন দেখান
+                    userDetailsSection.classList.add('hidden');
+                    personalInfoSection.classList.remove('hidden');
+                    photoDocumentsSection.classList.remove('hidden');
+                    loanDetailsBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                    loanDetailsBtn.classList.remove('bg-gray-600', 'hover:bg-gray-700');
+                    userDetailsBtn.classList.add('bg-gray-600', 'hover:bg-gray-700');
+                    userDetailsBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                });
+            }
+
+            // কুইক টেমপ্লেট বাটনে ক্লিক হ্যান্ডলার
+            if (templateButtons) { // Check if element exists before adding listener
+                templateButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        customMessageTextarea.value = button.textContent.trim();
+                    });
+                });
+            }
+
+            // URL হ্যাশ থেকে প্রাথমিক পেজ লোড করুন অথবা ড্যাশবোর্ড লোড করুন
+            const initialPage = window.location.hash.substring(1) || 'dashboard';
+            loadContent(initialPage);
+        });
+    </script>
 </body>
 </html>
